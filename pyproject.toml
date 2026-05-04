@@ -1,6 +1,6 @@
 [project]
 name = "image-classification"
-version = "0.1.0"
+version = "0.2.0"
 description = "Cat vs Dog image classification using ResNet-18 with PyTorch"
 requires-python = ">=3.14"
 dependencies = [
@@ -9,10 +9,28 @@ dependencies = [
     "Pillow>=11",
     "matplotlib>=3.10",
     "numpy>=2",
+    "tensorboard>=2.19",
 ]
 
+[project.scripts]
+train = "image_classification.train:main"
+classify = "image_classification.classify:main"
+
 [dependency-groups]
-dev = []
+dev = [
+    "pytest>=8",
+]
+
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchvision = { index = "pytorch-cpu" }
 
 [[tool.uv.index]]
 name = "pytorch-cpu"
