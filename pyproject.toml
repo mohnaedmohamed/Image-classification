@@ -1,0 +1,19 @@
+[project]
+name = "image-classification"
+version = "0.1.0"
+description = "Cat vs Dog image classification using ResNet-18 with PyTorch"
+requires-python = ">=3.14"
+dependencies = [
+    "torch>=2.6",
+    "torchvision>=0.21",
+    "Pillow>=11",
+    "matplotlib>=3.10",
+    "numpy>=2",
+]
+
+[dependency-groups]
+dev = []
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
